@@ -13,11 +13,16 @@
     const name = document.getElementById('name').value;   
 
     const country = document.getElementById('country').value;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: JSON.stringify({ name, country })
-    })
+fetch(form.action, {
+  method: 'POST',
+  body: new FormData(form)
+})
+.then(response => {
+  // ...
+})
+.catch(error => {
+  // ...
+});
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
