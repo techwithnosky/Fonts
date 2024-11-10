@@ -27,7 +27,7 @@ fetch(form.action, {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      return response.text();
+       return HtmlService.createHtmlOutputFromFile('index');
     })
     .then(data => {
       console.log('Form submitted successfully:', data);
