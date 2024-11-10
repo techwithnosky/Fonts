@@ -3,44 +3,6 @@
   <input type="text" id="name" name="name"><br><br>
   <label for="country">Country:</label>
   <input type="text" id="country" name="country"><br><br>
-  <a href="https://fontss.vercel.app"><input type="submit" value="Submit"><a/>
+  <input type="submit" value="Submit">
 </form>
-    <script>
-  const form = document.getElementById('myForm');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent  default form submission
-
-    const name = document.getElementById('name').value;   
-
-    const country = document.getElementById('country').value;
-fetch(form.action, {
-  method: 'POST',
-  body: new FormData(form)
-})
-.then(response => {
-  // ...
-})
-.catch(error => {
-  // ...
-});
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-       return HtmlService.createHtmlOutputFromFile('index.html');
-    })
-    .then(data => {
-      console.log('Form submitted successfully:', data);
-      alert('Form submitted successfully!');
-
-      // Clear form fields
-      document.getElementById('name').value = '';
-      document.getElementById('country').value = '';
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error submitting form. Please try again.');
-    });
-  });
-</script>
   
